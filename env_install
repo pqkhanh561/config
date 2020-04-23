@@ -1,0 +1,8 @@
+#!bin/bash
+sudo apt-get install python3-pip
+sudo pip3 install virtualenv
+mkdir ~/.virtualenvs
+sudo pip3 install virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+echo ". /usr/local/bin/virtualenvwrapper.sh" | sudo tee -a ~/.bashrc
+cp -r virtualenvwrapper.sh /usr/local/bin/virtualenvwrapper.sh
