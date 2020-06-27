@@ -1,8 +1,10 @@
+```
 blacklist nouveau
 blacklist lbm-nouveau
 options nouveau modeset=0
 alias nouveau off
 alias lbm-nouveau off
+```
 
 
 https://developer.nvidia.com/cuda-80-ga2-download-archive
