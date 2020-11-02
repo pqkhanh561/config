@@ -1,3 +1,5 @@
+PROMPT_DIRTRIM=3
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -115,7 +117,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias ls='ls --color'
-export PS1="\[\033[38;5;51m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\]\[\033[38;5;226m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$\[$(tput sgr0)\]"
-export EDITOR='vim'
+VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3' # This needs to be placed before the virtualenvwrapper command
 source /usr/local/bin/virtualenvwrapper.sh
+export DISPLAY=:0.0
+
+if test -t 1; then
+	exec zsh
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias ls='ls --color'
+export PS1='\u@\h:\[\e[33m\]\w\[\e[0m\]\$ '
+export EDITOR='vim'
